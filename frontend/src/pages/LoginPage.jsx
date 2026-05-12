@@ -24,8 +24,8 @@ export default function LoginPage() {
         body: JSON.stringify({ username, password }),
       })
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
-        setError(data.detail || 'Credenciales incorrectas')
+        const data = await res.json().catch(() => null)
+        setError(data?.detail || 'Credenciales incorrectas')
         return
       }
       const data = await res.json()
